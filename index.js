@@ -1,3 +1,4 @@
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const usersRouter = require('./routers/users');
@@ -8,12 +9,13 @@ const app = express();
 const port = process.env.PORT || 4001;
 
 app.use(bodyParser.json())
+
 app.use(logger)
 app.use('/users', usersRouter)
 app.use('/auth', authRouter)
 
 app.get('/', (req, res) => {
-  res.send('Welcome to our server!')
+  res.send('Welcome to our server! Success!')
 })
 
 app.listen(port, () => {

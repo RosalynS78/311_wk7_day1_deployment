@@ -1,4 +1,5 @@
-const mysql = require('mysql')
+const mysql = require('mysql2')
+
 
 class Connection {
   constructor() {
@@ -9,14 +10,14 @@ class Connection {
         connectionLimit: 100,
         host: 'localhost',
         user: 'root',
-        password: 'password',
-        database: 'admin'
+        password: 'rozzieP@n78',
+        database: 'deployment'
       }
 
-      if (process.env.NODE_ENV === 'production' && process.env.CLOUD_INSTANCE) {
-        console.log(`connect socket: ${process.env.CLOUD_INSTANCE}`)
-        config.socketPath = `/cloudsql/${process.env.CLOUD_INSTANCE}`
-      }
+      // if (process.env.NODE_ENV === 'production' && process.env.CLOUD_INSTANCE) {
+      //   console.log(`connect socket: ${process.env.CLOUD_INSTANCE}`)
+      //   config.socketPath = `/cloudsql/${process.env.CLOUD_INSTANCE}`
+      // }
 
       this.pool = mysql.createPool(config)
 
